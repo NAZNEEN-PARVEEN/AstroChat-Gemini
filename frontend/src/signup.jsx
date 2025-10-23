@@ -37,7 +37,7 @@ function Signup() {
 
     try {
       // **REPLACE THIS with your actual backend registration fetch call.**
-      const response = await fetch('http://localhost:8080/api/auth/signup', {
+      const response = await fetch('https://astrochat-gemini.onrender.com/api/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

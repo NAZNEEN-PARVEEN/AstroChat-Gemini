@@ -23,7 +23,7 @@ function Login() {
 
     try {
       // **REPLACE THIS with your actual backend authentication fetch call.**
-      const response = await fetch('http://localhost:8080/api/auth/login', {
+      const response = await fetch('https://astrochat-gemini.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

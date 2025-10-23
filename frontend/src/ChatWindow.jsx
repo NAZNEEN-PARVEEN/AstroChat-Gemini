@@ -30,7 +30,7 @@ const {prompt,setPrompt,reply ,setReply,currThreadId, prevChats,setPrevChats,set
         })
         };
         try{
-         const response=   await fetch("http://localhost:8080/api/chat",options);
+         const response=   await fetch("https://astrochat-gemini.onrender.com/api/chat",options);
          const res = await response.json();
             console.log(res);
             setReply(res.reply);
@@ -49,7 +49,7 @@ const {prompt,setPrompt,reply ,setReply,currThreadId, prevChats,setPrevChats,set
         
         // 2. Server ko notify karna (Optional call to the backend route)
         try {
-            await fetch('http://localhost:8080/api/auth/logout', { method: 'POST' });
+            await fetch('https://astrochat-gemini.onrender.com/api/auth/logout', { method: 'POST' });
             console.log("Server notified of logout.");
         } catch(error) {
             console.error("Logout notification failed, continuing client-side logout:", error);
