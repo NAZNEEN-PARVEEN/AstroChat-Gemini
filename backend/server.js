@@ -19,23 +19,22 @@ app.use(cors());
 app.use("/api", chatRoutes);
 app.use("/api/auth", authRoutes);
 
-// ✅ Database connection
+///✅ Database connection
 const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI);
-    console.log(`MongoDB Connected`);
-  } catch (err) {
-    console.error(" Failed to connect with DB:", err.message);
-    process.exit(1); // stop server if DB fails
-  }
+    try {
+        const conn = await mongoose.connect(process.env.MONGODB_URI);
+        console.log(`MongoDB Connected`);
+
+        // 💡 FIX: Start server ONLY after successful DB connection
+        app.listen(PORT, () => {
+             console.log(` Server running on port ${PORT}`);
+        });
+
+    } catch (err) {
+        console.error(" Failed to connect with DB:", err.message);
+        process.exit(1); // stop server if DB fails
+    }
 };
 
-
-
-//auth
-
-// ✅ Start server only after DB connects
-app.listen(PORT, async () => {
-  console.log(` Server running on port ${PORT}`);
-  await connectDB();
-});
+// ✅ FINAL STEP: Call the function to start the entire process
+connectDB();
