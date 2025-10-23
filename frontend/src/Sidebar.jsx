@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react"; // 1. Import useState
 import {MyContext} from "./MyContext.jsx";
 import {v1 as uuidv1} from "uuid";
 
+import LogoImage from './assets/after_remove.png';
 
 function Sidebar () {
 
@@ -95,7 +96,7 @@ function Sidebar () {
         {/* 4. Conditional Class for Sidebar Visibility */}
         <section className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
              <button onClick={createNewChat}>
-                 <img src="src/assets/after remove.png" className="logo"></img>
+                 <img src={LogoImage} className="logo"></img>
              <span> <i className="fa-solid fa-pen-to-square"></i></span> 
              </button>
 
