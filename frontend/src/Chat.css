@@ -1,0 +1,90 @@
+.chats{
+max-width: 700px;
+overflow-y: scroll;
+padding: 8rem;
+  scrollbar-width: thin;
+  scrollbar-color: #323232 transparent;
+
+}
+
+
+.userDiv{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 20px
+
+}
+
+.gptDiv{
+    text-align: left;
+   font-size: 20px;
+
+}
+
+.userMessage{
+
+    background-color: #37393b;
+    padding: 10px 20px;
+    border-radius: 14px;
+    margin-left: 15rem;
+    max-width: 500px;
+    width: fit-content;
+}
+
+.hljs{
+border-radius: 14px !important;
+
+}
+
+pre{
+    white-space:pre-wrap;
+}
+
+
+
+/* ---------------------------------------------------------------- */
+/* MOBILE RESPONSIVENESS (Max-width: 600px)                         */
+/* ---------------------------------------------------------------- */
+
+@media (max-width: 600px) {
+
+    /* Main Chat Container Adjustments */
+    .chats {
+        /* Reduce padding significantly for mobile screens */
+        padding: 4rem 1rem 4rem 1rem;
+    }
+
+    /* Message Font Size */
+    /* While the original size is 20px, it might be too large for a long chat thread. 
+       Adjusting for better density is often helpful. */
+    .userDiv,
+    .gptDiv {
+        font-size: 16px; /* Slightly smaller font for better screen utilization */
+    }
+
+    /* User Message Adjustments */
+    .userMessage {
+        /* Remove the large left margin and rely on max-width */
+        margin-left: 5rem;
+        /* Increase max-width to allow the message to take up more screen space.
+           It should be relative to the viewport width (vw) for best results. */
+        max-width: 80vw; 
+        /* Ensure the padding remains comfortable */
+        padding: 10px 15px; 
+    }
+
+    /* GPT/System Message Adjustments (if needed, though gptDiv is text-align: left) */
+    .gptDiv .messageContent {
+        /* A common practice is to give system messages slightly more width 
+           or to ensure they don't have excessive padding on the left/right */
+        padding: 0 1rem;
+    }
+
+    /* Code Block Adjustments */
+    pre {
+        /* Ensure preformatted text (code blocks) wrap correctly on small screens.
+           Since you already have white-space: pre-wrap, this is fine, but 
+           it's good to re-check the max-width context if necessary. */
+        word-wrap: break-word; /* A belt-and-suspenders approach for wide content */
+    }
+}
